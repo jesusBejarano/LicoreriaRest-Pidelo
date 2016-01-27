@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="upc.edu.pe.persistence.ClienteMapper">
+    
+    <resultMap id="rObtener" type="Cliente">
+        <result property="id_cliente"           column="id_cliente" />
+        <result property="nombre"               column="nombre" />
+        <result property="apellidos"            column="apellidos" />
+        <result property="telefono"             column="telefono" />
+        <result property="distrito.id_distrito" column="id_distrito" />
+        <result property="usuario"              column="usuario" />
+        <result property="contrasena"           column="contrasena" />
+        <result property="direccion"            column="direccion" />
+        <result property="correo"               column="correo" />
+    </resultMap>
+   
+    
+    <select id="obtener" statementType="CALLABLE" parameterType="java.lang.Integer" resultMap="rObtener">
+        { call sp_cliente_obtener(#{accesorioId, jdbcType=SMALLINT}) }
+    </select>
+    
+    <select id="autenticar" statementType="CALLABLE" parameterType="Cliente" resultMap="rObtener">
+        { call LOGIN_CLIENTE(#{usuario}, #{contrasena}) }
+    </select>
+       
+</mapper>
