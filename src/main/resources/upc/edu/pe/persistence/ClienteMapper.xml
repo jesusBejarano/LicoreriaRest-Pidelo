@@ -23,5 +23,6 @@
     <select id="autenticar" statementType="CALLABLE" parameterType="Cliente" resultMap="rObtener">
         { call LOGIN_CLIENTE(#{usuario}, #{contrasena}) }
     </select>
+    
        
 </mapper>

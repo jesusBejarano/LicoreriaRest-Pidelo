@@ -45,7 +45,7 @@ public class ClienteRestService {
             json = gson.toJson(cliente);
 
         } catch (Exception e) {
-            System.out.println("Message listar usuario por id : " + e.getMessage());
+            System.out.println("Message Obtener usuario por id : " + e.getMessage());
         }
         return json;
     }
@@ -93,16 +93,6 @@ public class ClienteRestService {
             ps.setString(4, cliente.getContrasena());
             ps.setString(5, cliente.getCorreo());
             int registro = ps.executeUpdate();
-//            ps = conexion.prepareStatement("INSERT INTO tb_cliente(Nombre,Apellidos,Telefono,Id_distrito,Usuario,Contrasena,Direccion,Correo)VALUES(?,?,?,?,?,?,?,?)");
-//            ps.setString(1, cliente.getNombre());
-//            ps.setString(2, cliente.getApellidos());
-//            ps.setString(3, cliente.getTelefono());
-//            ps.setInt(4, cliente.getDistrito().getId_distrito());
-//            ps.setString(5, cliente.getUsuario());
-//            ps.setString(6, cliente.getContrasena());
-//            ps.setString(7, cliente.getDireccion());
-//            ps.setString(8, cliente.getCorreo());
-//            int registro = ps.executeUpdate();
             System.out.println("Registro Cliente : " + registro);
             ps.close();
             conexion.close();
