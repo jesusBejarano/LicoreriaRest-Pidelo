@@ -12,7 +12,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import upc.edu.pe.licoreria.conexion.ConexionBD;
 import upc.edu.pe.licoreria.type.Cliente;
 import upc.edu.pe.licoreria.type.Distrito;
 import upc.edu.pe.service.ClienteService;
@@ -85,17 +84,8 @@ public class ClienteRestService {
 
         try {
             Cliente cliente = (Cliente) gson.fromJson(usuario, Cliente.class);
-            conexion = ConexionBD.conexion();
-            ps = conexion.prepareStatement("INSERT INTO tb_cliente(Nombre,Apellidos,Usuario,Contrasena,Correo,Id_distrito)VALUES(?,?,?,?,?,1)");
-            ps.setString(1, cliente.getNombre());
-            ps.setString(2, cliente.getApellidos());
-            ps.setString(3, cliente.getUsuario());
-            ps.setString(4, cliente.getContrasena());
-            ps.setString(5, cliente.getCorreo());
-            int registro = ps.executeUpdate();
+            int registro = clienteService.insertar(cliente);
             System.out.println("Registro Cliente : " + registro);
-            ps.close();
-            conexion.close();
             if (registro == 1) {
                 result = "OK";
                 response = Response.status(201).entity(result).build();
@@ -119,21 +109,8 @@ public class ClienteRestService {
         Response response = null;
         Cliente cliente = (Cliente) gson.fromJson(usuario, Cliente.class);
         try {
-            conexion = ConexionBD.conexion();
-            cs = conexion.prepareCall("{call sp_cliente_actualizar(?,?,?,?,?,?,?,?,?)}");
-            cs.setInt(1, cliente.getId_cliente());
-            cs.setString(2, cliente.getNombre());
-            cs.setString(3, cliente.getApellidos());
-            cs.setString(4, cliente.getTelefono());
-            cs.setInt(5, cliente.getDistrito().getId_distrito());
-            cs.setString(6, cliente.getUsuario());
-            cs.setString(7, cliente.getContrasena());
-            cs.setString(8, cliente.getDireccion());
-            cs.setString(9, cliente.getCorreo());
-            int actualizo = cs.executeUpdate();
+            int actualizo = clienteService.actualizar(cliente);
             System.out.println("Actualizo Cliente: " + actualizo);
-            cs.close();
-            conexion.close();
             if (actualizo == 1) {
                 result = "OK";
                 response = Response.status(201).entity(result).build();

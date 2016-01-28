@@ -21,8 +21,15 @@
     </select>
     
     <select id="autenticar" statementType="CALLABLE" parameterType="Cliente" resultMap="rObtener">
-        { call LOGIN_CLIENTE(#{usuario}, #{contrasena}) }
+        { call sp_cliente_login(#{usuario}, #{contrasena}) }
     </select>
     
+    <insert id="insertar" statementType="CALLABLE" parameterType="Cliente">
+        { call sp_cliente_insertar(#{nombre}, #{apellidos}, #{usuario}, #{contrasena}, #{correo}, #{distrito.id_distrito}) }
+    </insert>
+    
+    <update id="actualizar" statementType="CALLABLE" parameterType="Cliente">
+        { call sp_cliente_actualizar(#{id_cliente}, #{nombre}, #{apellidos}, #{telefono}, #{distrito.id_distrito}, #{usuario}, #{contrasena}, #{direccion}, #{correo})}
+    </update>     
        
 </mapper>

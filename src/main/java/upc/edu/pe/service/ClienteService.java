@@ -22,4 +22,12 @@ public class ClienteService {
         return clienteMapper.autenticar(cliente);
     }
     
+    public Integer insertar(Cliente cliente) throws Exception{
+        return clienteMapper.insertar(cliente);
+    }
+    
+    public Integer actualizar(Cliente cliente) throws Exception{
+        return clienteMapper.actualizar(cliente);
+    }
+    
 }

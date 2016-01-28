@@ -5,8 +5,8 @@ import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import upc.edu.pe.licoreria.type.Cliente;
+import upc.edu.pe.licoreria.type.Distrito;
 import upc.edu.pe.spring.SisLocFactory;
 
 /**
@@ -53,12 +53,12 @@ public class ClienteServiceTest {
     /**
      * Test of autenticar method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testAutenticar() throws Exception {
         System.out.println("autenticar");
         Cliente cliente = new Cliente();
-        cliente.setUsuario("rsalazar");
-        cliente.setContrasena("123");
+        cliente.setUsuario("lcardoso");
+        cliente.setContrasena("12345");
         Cliente expResult = null;
         Cliente result = instance.autenticar(cliente);
         if(result != null)
@@ -66,6 +66,44 @@ public class ClienteServiceTest {
         else
             System.out.println("Soy Vacio");
             assertTrue(result != null);
+    }
+
+    /**
+     * Test of insertar method, of class ClienteService.
+     */
+    //@Test
+    public void testInsertar() throws Exception {
+        System.out.println("insertar");
+        Cliente cliente = new Cliente();
+        cliente.setNombre("mybatis");
+        cliente.setApellidos("spring");
+        cliente.setUsuario("ms");
+        cliente.setContrasena("1230");
+        cliente.setDistrito(new Distrito());
+        cliente.getDistrito().setId_distrito(1);
+        Integer result = instance.insertar(cliente);
+        System.out.println("Resultado : " + result);
+        assertTrue(result == 1);
+    }
+
+    /**
+     * Test of actualizar method, of class ClienteService.
+     */
+    //@Test
+    public void testActualizar() throws Exception {
+        System.out.println("actualizar");
+        Cliente cliente =  new Cliente();
+        cliente.setId_cliente(5);
+        cliente.setNombre("test");
+        cliente.setApellidos("test");
+        cliente.setUsuario("ms");
+        cliente.setContrasena("1230");
+        cliente.setDireccion("no existe");
+        cliente.setDistrito(new Distrito());
+        cliente.getDistrito().setId_distrito(2);
+        Integer result = instance.actualizar(cliente);
+        System.out.println("Resultado : " + result);
+        assertTrue(result == 1);
     }
     
 }

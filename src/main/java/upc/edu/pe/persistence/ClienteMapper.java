@@ -12,5 +12,6 @@ public interface ClienteMapper {
     public Cliente obtener(Integer id) throws DataAccessException;
     public Cliente autenticar(Cliente cliente) throws DataAccessException;
     public Integer insertar(Cliente cliente) throws DataAccessException;
+    public Integer actualizar(Cliente cliente) throws DataAccessException;
     
 }
