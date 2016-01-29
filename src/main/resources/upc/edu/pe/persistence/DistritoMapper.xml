@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="upc.edu.pe.persistence.DistritoMapper">
+
+    <resultMap id="rListar" type="Distrito">
+        <result property="id_distrito"          column="Id_distrito" />
+        <result property="nombre"               column="Nombre" />
+    </resultMap>
+       
+    <select id="listar" statementType="CALLABLE" resultMap="rListar">
+        { call sp_distrito_listar() }
+    </select>
+    
+</mapper>

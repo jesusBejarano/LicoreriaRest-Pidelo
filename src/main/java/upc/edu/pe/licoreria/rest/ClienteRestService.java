@@ -1,9 +1,6 @@
 package upc.edu.pe.licoreria.rest;
 
 import com.google.gson.Gson;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -23,12 +20,7 @@ import upc.edu.pe.spring.SisLocFactory;
  */
 @Path("/usuarios")
 public class ClienteRestService {
-
-    CallableStatement cs = null;
-    PreparedStatement ps = null;
-    Connection conexion = null;
-    String query = "";
-    
+    //Servicio
     ClienteService clienteService = SisLocFactory.getInstance().getClienteService();
 
     @GET

@@ -4,15 +4,15 @@
 <mapper namespace="upc.edu.pe.persistence.ClienteMapper">
     
     <resultMap id="rObtener" type="Cliente">
-        <result property="id_cliente"           column="id_cliente" />
-        <result property="nombre"               column="nombre" />
-        <result property="apellidos"            column="apellidos" />
-        <result property="telefono"             column="telefono" />
-        <result property="distrito.id_distrito" column="id_distrito" />
-        <result property="usuario"              column="usuario" />
-        <result property="contrasena"           column="contrasena" />
-        <result property="direccion"            column="direccion" />
-        <result property="correo"               column="correo" />
+        <result property="id_cliente"           column="Id_cliente" />
+        <result property="nombre"               column="Nombre" />
+        <result property="apellidos"            column="Apellidos" />
+        <result property="telefono"             column="Telefono" />
+        <result property="distrito.id_distrito" column="Id_distrito" />
+        <result property="usuario"              column="Usuario" />
+        <result property="contrasena"           column="Contrasena" />
+        <result property="direccion"            column="Direccion" />
+        <result property="correo"               column="Correo" />
     </resultMap>
    
     
