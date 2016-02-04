@@ -1,7 +1,6 @@
 package upc.edu.pe.licoreria.type;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,9 +17,9 @@ public class Pedido implements Serializable {
     private Double monto;
     
     private List<DetallePedido> listDetallePedidos;
-    private Distrito Distrito;
+    private Distrito distrito;
 
-    private Cliente Cliente;
+    private Cliente cliente;
 
     public Pedido() {
     }
@@ -82,19 +81,19 @@ public class Pedido implements Serializable {
     }
 
     public Distrito getDistrito() {
-        return Distrito;
+        return distrito;
     }
 
-    public void setDistrito(Distrito Distrito) {
-        this.Distrito = Distrito;
+    public void setDistrito(Distrito distrito) {
+        this.distrito = distrito;
     }
 
     public Cliente getCliente() {
-        return Cliente;
+        return cliente;
     }
 
-    public void setCliente(Cliente Cliente) {
-        this.Cliente = Cliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }

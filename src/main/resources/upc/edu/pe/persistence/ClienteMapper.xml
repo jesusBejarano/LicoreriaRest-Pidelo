@@ -17,7 +17,7 @@
    
     
     <select id="obtener" statementType="CALLABLE" parameterType="java.lang.Integer" resultMap="rObtener">
-        { call sp_cliente_obtener(#{accesorioId, jdbcType=SMALLINT}) }
+        { call sp_cliente_obtener(#{pIdCliente, jdbcType=SMALLINT}) }
     </select>
     
     <select id="autenticar" statementType="CALLABLE" parameterType="Cliente" resultMap="rObtener">

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="upc.edu.pe.persistence.PedidoMapper">
+    
+    <resultMap id="rObtener" type="Pedido">        
+        <result property="id_pedido"            column="Id_pedido" />
+        <result property="cliente.direccion"    column="Direccion" />
+        <result property="distrito.id_distrito" column="Id_distrito" />
+        <result property="distrito.nombre"      column="Nombre" />
+        <result property="estado"               column="Estado" />
+        <result property="fecha"                column="Fecha" />
+        <result property="cantidad"             column="Cantidad" />
+        <result property="monto"                column="Monto" />      
+    </resultMap>
+    
+    <resultMap id="rListar" type="Pedido">
+        <result property="id_pedido"            column="Id_pedido" />        
+        <result property="cliente.id_cliente"   column="Id_cliente" />
+        <result property="cliente.direccion"    column="Direccion" />
+        <result property="cliente.usuario"      column="Usuario" />
+        <result property="distrito.id_distrito" column="Id_distrito" />
+        <result property="distrito.nombre"      column="Nombre" />
+        <result property="fecha"                column="Fecha" />
+        <result property="estado"               column="Estado" />        
+        <result property="monto"                column="Monto" />  
+        <result property="cantidad"             column="Cantidad" />
+    </resultMap>
+       
+    <select id="listar" statementType="CALLABLE"  resultMap="rListar">
+        { call sp_pedido_listar() }
+    </select>
+   
+    <select id="obtener" statementType="CALLABLE" parameterType="java.lang.Integer" resultMap="rObtener">
+        { call sp_pedido_obtener(#{pIdCliente, jdbcType=SMALLINT}) }
+    </select>
+    
+    <select id="insertar" statementType="CALLABLE" parameterType="Pedido" resultType="java.lang.Integer">
+        { call sp_pedido_insertar(#{cantidad}, #{direccion}, #{estado}, #{cliente.id_cliente}, #{distrito.id_distrito}, #{monto}) }
+    </select>
+    
+    <update id="actualizar" statementType="CALLABLE" parameterType="java.lang.Integer">
+        { call sp_pedido_actualizar(#{pIdPedido, jdbcType=SMALLINT})}
+    </update>     
+       
+
+</mapper>

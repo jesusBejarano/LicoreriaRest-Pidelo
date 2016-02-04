@@ -3,6 +3,7 @@ package upc.edu.pe.spring;
 import org.springframework.beans.factory.BeanFactory;
 import upc.edu.pe.service.ClienteService;
 import upc.edu.pe.service.DistritoService;
+import upc.edu.pe.service.PedidoService;
 import upc.edu.pe.service.ProductoService;
 
 /**
@@ -39,5 +40,8 @@ public class SisLocFactory {
     }
     public DistritoService getDistritoService(){
         return factory.getBean("distritoService",DistritoService.class);
+    }
+    public PedidoService getPedidoService(){
+        return factory.getBean("pedidoService",PedidoService.class);
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="upc.edu.pe.persistence.DetallePedidoMapper">
+    
+    <resultMap id="rObtener" type="DetallePedido">
+        <result property="item"                 column="Item" />
+        <result property="producto.id_producto" column="Id_producto" />        
+        <result property="producto.nombre"      column="Nombre" />
+        <result property="cantidad"             column="Cantidad" />
+        <result property="precio"               column="Precio" />
+        <result property="total"                column="Total" />
+    </resultMap>
+   
+    
+    <select id="obtener" statementType="CALLABLE" parameterType="java.lang.Integer" resultMap="rObtener">
+        { call sp_pedido_detalle_obtener(#{pIdPedidoDetalle, jdbcType=SMALLINT}) }
+    </select>
+    
+    <insert id="insertar" statementType="CALLABLE" parameterType="DetallePedido">
+        { call sp_pedido_detalle_insertar(#{pedido.id_pedido}, #{item}, #{cantidad}, #{producto.id_producto}, #{producto.precio}, #{total}) }
+    </insert>
+    
+
+</mapper>
