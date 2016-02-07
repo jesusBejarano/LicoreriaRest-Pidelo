@@ -33,7 +33,6 @@ public class PedidoRestService extends PadreType{
     @Produces("application/json")
     public String listadoPedidosPendientes() {
         List<Pedido> listPedido = new ArrayList<Pedido>();
-        Pedido pedido;
         String json = "";
         Gson gson = new Gson();
         try {
@@ -92,7 +91,7 @@ public class PedidoRestService extends PadreType{
             resultado = pedidoService.insertarTodo(pedido);
             System.out.println("Registros : " + resultado);         
             if (resultado == 1) {
-                enviarPedidoaCola(gson.toJson(pedido));
+                //enviarPedidoaCola(gson.toJson(pedido));
                 result = "OK";
                 response = Response.status(201).entity(result).build();
             } else {

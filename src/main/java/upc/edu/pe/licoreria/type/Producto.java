@@ -13,6 +13,7 @@ public class Producto implements Serializable {
     private String nombre;
     private String descripcion;
     private Double precio;
+    private String imagen;
 
     private List<DetallePedido> listDetallePedidos;
     
@@ -68,5 +69,13 @@ public class Producto implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     } 
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
 }

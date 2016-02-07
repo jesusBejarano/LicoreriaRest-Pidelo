@@ -50,10 +50,10 @@ public class ClienteRestService {
         Response response = null;
         Cliente cliente = (Cliente) gson.fromJson(usuario, Cliente.class);
         try {
-            cliente = clienteService.autenticar(cliente);   
-            if (cliente != null) {
-                result = "OK";
-                response = Response.status(200).entity(result).build();
+            cliente = clienteService.autenticar(cliente);  
+            result = gson.toJson(cliente);
+            if (cliente != null) {                
+                response = Response.status(201).entity(result).build();
             } else {
                 result = "ERROR";
                 response = Response.status(404).entity(result).build();

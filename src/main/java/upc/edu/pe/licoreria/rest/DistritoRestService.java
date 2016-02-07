@@ -23,7 +23,6 @@ public class DistritoRestService {
     @Produces("application/json")
     public String listadoDistrito() {
         List<Distrito> listDistritos = new ArrayList<Distrito>();
-        Distrito distrito;
         String json="";
         Gson gson = new Gson();
         try {

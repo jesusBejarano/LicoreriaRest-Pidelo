@@ -10,6 +10,7 @@
         <result property="precio"               column="Precio" />
         <result property="familia.id_familia"   column="Id_familia" />
         <result property="familia.descripcion"  column="Descripcion" />
+        <result property="imagen"               column="Imagen" />
     </resultMap>
        
     <select id="listar" statementType="CALLABLE"  resultMap="rListar">
