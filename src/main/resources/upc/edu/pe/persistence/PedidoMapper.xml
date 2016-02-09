@@ -5,7 +5,7 @@
     
     <resultMap id="rObtener" type="Pedido">        
         <result property="id_pedido"            column="Id_pedido" />
-        <result property="cliente.direccion"    column="Direccion" />
+        <result property="direccion"            column="Direccion" />
         <result property="distrito.id_distrito" column="Id_distrito" />
         <result property="distrito.nombre"      column="Nombre" />
         <result property="estado"               column="Estado" />
