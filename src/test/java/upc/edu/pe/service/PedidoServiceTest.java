@@ -46,11 +46,15 @@ public class PedidoServiceTest {
     /**
      * Test of listar method, of class PedidoService.
      */
-    //@Test
+    @Test
     public void testListar() throws Exception {
         System.out.println("listar");
         List<Pedido> result = instance.listar();
         System.out.println("Resultado : " + result.size());
+        for(Pedido ped : result){
+            System.out.println("Nombre : " + ped.getCliente().getNombre());
+            System.out.println("Apellidos : " + ped.getCliente().getApellidos());
+        }
         assertTrue(result != null);
     }
 

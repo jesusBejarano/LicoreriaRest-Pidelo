@@ -18,7 +18,9 @@
         <result property="id_pedido"            column="Id_pedido" />        
         <result property="cliente.id_cliente"   column="Id_cliente" />
         <result property="cliente.direccion"    column="Direccion" />
-        <result property="cliente.usuario"      column="Usuario" />
+        <result property="cliente.usuario"      column="Usuario" />        
+        <result property="cliente.nombre"      column="NombreCliente" />
+        <result property="cliente.apellidos"   column="Apellidos" />        
         <result property="distrito.id_distrito" column="Id_distrito" />
         <result property="distrito.nombre"      column="Nombre" />
         <result property="fecha"                column="Fecha" />
