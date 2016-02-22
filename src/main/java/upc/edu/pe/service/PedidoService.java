@@ -47,6 +47,7 @@ public class PedidoService {
         if (resultado > 0) {
             Integer id = resultado;
             for (DetallePedido detalle : pedido.getListDetallePedidos()) {
+                detalle.setPedido(new Pedido());
                 detalle.getPedido().setId_pedido(id);
                 resultado = detallePedidoMapper.insertar(detalle);
                 if (resultado == 0) {

@@ -137,15 +137,17 @@ public class PedidoRestServiceTest {
             pedido.setCantidad(3);
             pedido.setMonto(411.70);
             pedido.setEstado("P");
+            
             Cliente cliente = new Cliente();
             cliente.setId_cliente(7);
-            cliente.setCorreo("lcardosoore@gmail.com");
+            cliente.setCorreo("lcardosoore@gmail.com");            
             pedido.setCliente(cliente);
 
             Distrito distrito = new Distrito();
             distrito.setId_distrito(6);
-            distrito.setNombre("SAN ISIDRO");
+            distrito.setNombre("SAN ISIDRO");            
             pedido.setDistrito(distrito);
+            
             pedido.setDireccion("Av. Las Camelias 702");
 
             List<DetallePedido> listdp = new ArrayList<DetallePedido>();

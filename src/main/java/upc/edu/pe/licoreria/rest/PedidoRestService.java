@@ -1,9 +1,7 @@
 package upc.edu.pe.licoreria.rest;
 
 import com.google.gson.Gson;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

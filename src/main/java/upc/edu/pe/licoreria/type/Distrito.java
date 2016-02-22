@@ -10,7 +10,7 @@ import java.util.List;
 public class Distrito implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int id_distrito;
+    private Integer id_distrito;
     private String nombre;
 
     private List<Sucursal> listSucursal2;
@@ -29,7 +29,7 @@ public class Distrito implements Serializable {
         return this.id_distrito;
     }
 
-    public void setId_distrito(int id_distrito) {
+    public void setId_distrito(Integer id_distrito) {
         this.id_distrito = id_distrito;
     }
 
