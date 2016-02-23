@@ -1,5 +1,7 @@
 package upc.edu.pe.licoreria.rest;
 
+import com.google.android.gcm.server.Message;
+import com.google.android.gcm.server.Sender;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ import upc.edu.pe.tools.PadreType;
  */
 @Path("/pedidos")
 public class PedidoRestService extends PadreType{
+    
     //Servicio
     PedidoService pedidoService = SisLocFactory.getInstance().getPedidoService();
     
@@ -115,6 +118,9 @@ public class PedidoRestService extends PadreType{
             int actualizo = pedidoService.actualizar(pedido.getId_pedido());
             System.out.println("Actualizo Pedido : " + actualizo);
             if (actualizo == 1) {
+                if (pedido.getCliente().getCodigoGCM() != null && !pedido.getCliente().getCodigoGCM().isEmpty()) {
+                    enviarNotificacion(pedido.getFecha(), pedido.getDireccion(), pedido.getCliente().getCodigoGCM());
+                }
                 result = "OK";
                 response = Response.status(201).entity(result).build();
             } else {

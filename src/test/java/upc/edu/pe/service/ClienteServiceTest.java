@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import upc.edu.pe.licoreria.type.Cliente;
 import upc.edu.pe.licoreria.type.Distrito;
 import upc.edu.pe.spring.SisLocFactory;
@@ -93,12 +94,13 @@ public class ClienteServiceTest {
     public void testActualizar() throws Exception {
         System.out.println("actualizar");
         Cliente cliente =  new Cliente();
-        cliente.setId_cliente(5);
+        cliente.setId_cliente(11);
         cliente.setNombre("test");
         cliente.setApellidos("test");
         cliente.setUsuario("ms");
         cliente.setContrasena("1230");
         cliente.setDireccion("no existe");
+        cliente.setCodigoGCM("APA91bGsluzfpQyh2GCxtOfWdfwzJlG0y-IrkAS1JeHbeSonqlBRrdKoYK7_zM11DIpMKVGeAs4WgyzNZpsJDcL-BYJKugT8rKjAR4Jl2J672bn4rUEYkZ2KDG6hfTyKC3iznc4WHiu1");
         cliente.setDistrito(new Distrito());
         cliente.getDistrito().setId_distrito(2);
         Integer result = instance.actualizar(cliente);

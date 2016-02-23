@@ -12,7 +12,7 @@
         <result property="usuario"              column="Usuario" />
         <result property="contrasena"           column="Contrasena" />
         <result property="direccion"            column="Direccion" />
-        <result property="correo"               column="Correo" />
+        <result property="correo"               column="Correo" />        
     </resultMap>
    
     
@@ -29,7 +29,7 @@
     </insert>
     
     <update id="actualizar" statementType="CALLABLE" parameterType="Cliente">
-        { call sp_cliente_actualizar(#{id_cliente}, #{nombre}, #{apellidos}, #{telefono}, #{distrito.id_distrito}, #{usuario}, #{contrasena}, #{direccion}, #{correo})}
+        { call sp_cliente_actualizar(#{id_cliente}, #{nombre}, #{apellidos}, #{telefono}, #{distrito.id_distrito}, #{usuario}, #{contrasena}, #{direccion}, #{correo}, #{codigoGCM} )}
     </update>     
        
 </mapper>

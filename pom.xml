@@ -19,6 +19,11 @@
             <id>JBoss repository</id>
             <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </repository>
+        
+        <repository>
+            <id>gcm-server-repository</id>
+            <url>https://raw.githubusercontent.com/slorber/gcm-server-repository/master/releases/</url>
+        </repository>
     </repositories>
 
     <dependencies>        
@@ -91,13 +96,13 @@
             <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
- <!--       
+        
+        <!-- GCM SERVER -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>3.1.1.RELEASE</version>
-        </dependency>  
-                                                -->
+            <groupId>com.google.android.gcm</groupId>
+            <artifactId>gcm-server</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         
     </dependencies>
 

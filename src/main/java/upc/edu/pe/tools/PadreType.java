@@ -1,5 +1,8 @@
 package upc.edu.pe.tools;
 
+import com.google.android.gcm.server.Message;
+import com.google.android.gcm.server.Sender;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 import java.text.Format;
@@ -18,6 +21,8 @@ import org.apache.activemq.ActiveMQConnectionFactory;
  * @author Miguel Cardoso
  */
 public class PadreType implements Serializable {
+    
+    private static String senderKey = "AIzaSyASnxEIQ3CUyYr6I6RRdnBzmClWrRs_uss";
     
     public static String cambiarFormatoFecha(String fecha) {
         if (fecha != null && !fecha.isEmpty()) {
@@ -43,6 +48,13 @@ public class PadreType implements Serializable {
 
             return fechaejecucion;
         }
+    }
+
+    public void enviarNotificacion(String fecha, String direccion, String gcm) throws IOException {
+        String mensajeNotificacion = "El pedido realizado en la fecha " + fecha + " para la dirección " + direccion + " a sido atendida.";
+        Message msg = new Message.Builder().addData("MENSAJE", mensajeNotificacion).build();
+        Sender se = new Sender(senderKey);
+        se.send(msg, gcm, 0);
     }
     
     public void enviarPedidoaCola(String json) {

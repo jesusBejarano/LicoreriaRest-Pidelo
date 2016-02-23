@@ -34,7 +34,6 @@ public class ClienteRestService {
         try {
             cliente = clienteService.obtenerCliente(Integer.parseInt(id));
             json = gson.toJson(cliente);
-
         } catch (Exception e) {
             System.out.println("Message Obtener usuario por id : " + e.getMessage());
         }
